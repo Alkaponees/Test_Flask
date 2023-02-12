@@ -13,7 +13,7 @@ todos = db.todos
 def query_record():
       output= []
       for q in todos.find():
-        output.append({'CPU_Info': q.cpuUsage, 'Memory_Info':q.memUsage})
+        output.append({'CPU_Info': q['CPU_Info'], 'Memory_Info':q['Memory_Info']})
      #all_todos = todos.find()
      #return render_template('index.html', todos=all_todos)
       return jsonify({'result': output})
