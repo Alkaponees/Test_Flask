@@ -11,9 +11,9 @@ todos = db.todos
 
 @app.route('/', methods=['GET'])
 def query_record():
-      output= {}
+      output= []
       for q in todos.find():
-        output.append({'CPU_Info': q.CPU_INFO, 'Memory_Info':q.Memory_Info})
+        output.append({'CPU_Info': q.cpuUsage, 'Memory_Info':q.memUsage})
      #all_todos = todos.find()
      #return render_template('index.html', todos=all_todos)
       return jsonify({'result': output})
@@ -21,12 +21,12 @@ def query_record():
 @app.route('/test', methods=['POST'])
 def update_record():
     request_data = request.json()
-    CPU_Usage=request_data['CPU_Usage']
+    cpu_Usage=request_data['CPU_Usage']
     Memory_Usage = request_data['Memory_Usage']
-    mydict={"CPU_Info":CPU_Usage, "Memory_Info": Memory_Usage}
-    print(CPU_Usage)
+    mydict={"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage}
+    print(cpu_Usage)
     print(Memory_Usage)
-    todos.insert_one({"CPU_Info":CPU_Usage, "Memory_Info": Memory_Usage})
+    todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return redirect(url_for('index'))
     #x = mydb.insert_one(mydict)
 @app.route('/update',methods=['PUT'])
