@@ -8,7 +8,7 @@ app = Flask(__name__)
 client = MongoClient('localhost', 27017)
 db = client.flask_db
 todos = db.todos
-
+#Workable
 @app.route('/', methods=['GET'])
 def query_record():
       output= []
