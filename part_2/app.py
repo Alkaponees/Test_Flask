@@ -28,6 +28,7 @@ def update_record():
     print(Memory_Usage)
     todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return jsonify(request_data)
+#Unknown    
 @app.route('/update',methods=['PUT'])
 def create_record():
     post_data=request.json
