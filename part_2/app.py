@@ -1,7 +1,7 @@
 import json
 from flask import Flask, request, jsonify,render_template, url_for, redirect
 from pymongo import MongoClient
-import bson
+
 
 app = Flask(__name__)
 
@@ -23,18 +23,18 @@ def update_record():
     request_data = request.get_json()
     cpu_Usage=request_data['CPU_Usage']
     Memory_Usage = request_data['Memory_Usage']
+    mydict={"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage}
     print(cpu_Usage)
     print(Memory_Usage)
     todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return jsonify(request_data)
-#Unknown    
-@app.route('/search/<ObjectId:info_id>',methods=['PUT'])
-def create_record(info_id):
+@app.route('/update',methods=['PUT'])
+def create_record():
     post_data=request.json
-    output=[]
-    for q in todos.find({},{'__id':info_id}):
-        output.append(q)    
-    return jsonify({"result":output})
-    
+    todos.insert_one(0, {
+        'CPU_Info' : post_data['CPU_Usage'],
+        'Memory_Info' : post_data['Memory_Usage']
+     })
+    return jsonify(post_data)
 if __name__ == "__main__":
     app.run(Debug=True, host="0.0.0.0", port=8080)
