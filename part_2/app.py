@@ -30,9 +30,11 @@ def update_record():
 #Unknown    
 @app.route('/search/<ObjectId:info_id>',methods=['PUT'])
 def create_record(info_id):
-    post_data=request.get_json()
-    data=todos.find_one_and_update({'_id':info_id},{'$set':{"CPu_Info": post_data["CPU_Info"],"Memory_Info":post_data["Memory_Info"]}})
-    return jsonify({"result":data})
+    post_data=request.json
+    output=[]
+    for q in todos.find({},{'__id':info_id}):
+        output.append(q)    
+    return jsonify({"result":output})
     
 if __name__ == "__main__":
     app.run(Debug=True, host="0.0.0.0", port=8080)
