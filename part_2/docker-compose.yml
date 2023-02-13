@@ -4,10 +4,9 @@ services:
  backend:
   container_name: PYTHON-API-BACKEND
   build: .
-  command: python3 -u app.py
+  command: python3 -u app.py && gunicorn -w 1 -b :8080 app:app 
   ports:
     - 8080:8080
-  command: gunicorn -w 1 -b :8080 app:app
   volumes:
     - .:/opt/projetos/dev/api
   links:
