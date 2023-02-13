@@ -9,7 +9,12 @@ services:
     links:       
       - db    
   db:       
-    image: mongo:latest            
+    image: mongo:latest 
+    hostname: test_mongodb           
     environment:         
-      - MONGO_INITDB_DATABASE=flask_db         
+      - MONGO_INITDB_DATABASE=flask_db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+    - 27017:27017         
   

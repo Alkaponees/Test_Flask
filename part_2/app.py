@@ -5,7 +5,11 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-client = MongoClient('localhost', 27017)
+client = MongoClient(host='test_mongodb',
+                         port=27017, 
+                         username='root', 
+                         password='pass',
+                        authSource="admin")
 db = client.flask_db
 todos = db.todos
 
