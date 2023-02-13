@@ -28,13 +28,11 @@ def update_record():
     print(Memory_Usage)
     todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return jsonify(request_data)
-@app.route('/update',methods=['PUT'])
-def create_record():
+@app.route('/update/<info_id>',methods=['PUT'])
+def create_record(info_id):
     post_data=request.json
-    todos.insert_one(0, {
-        'CPU_Info' : post_data['CPU_Usage'],
-        'Memory_Info' : post_data['Memory_Usage']
-     })
-    return jsonify(post_data)
+    updated_date = {"$set":{"CPU_Info": post_data['CPU_Info'], "Memory_info": post_data['Memory_Info']}}
+    responce=todos.update_one({'_id':info_id},updated_date)
+    return jsonify({"result":responce})
 if __name__ == "__main__":
-    app.run(Debug=True, host="0.0.0.0", port=8080)
+    app.run(debug=True, host="0.0.0.0", port=8000)
