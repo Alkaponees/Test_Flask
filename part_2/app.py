@@ -23,7 +23,7 @@ def query_record():
       return jsonify({'result': output})
 #Workable
 @app.route('/test', methods=['POST'])
-def update_record():
+def create_record():
     request_data = request.get_json()
     cpu_Usage=request_data['CPU_Usage']
     Memory_Usage = request_data['Memory_Usage']
@@ -32,5 +32,13 @@ def update_record():
     print(Memory_Usage)
     todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return jsonify(request_data)
+@app.route('/update/<ids>', methods=['PUT'])
+def update_record(ids):
+    post_date=request.get_json()
+    if ids == todos['id']:
+        todos.update_one({'id':ids},{'$set':{"CPU_Info":post_date['CPU_Usage'], "Memory_Info": post_date['Memory_Usage']}})
+        return jsonify({'result': post_date})
+    else:
+        return jsonify({'result':'Not Found'})
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
