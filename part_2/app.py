@@ -5,11 +5,7 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-client = MongoClient(host='test_mongodb',
-                         port=27017, 
-                         username='root', 
-                         password='pass',
-                        authSource="admin")
+client = MongoClient('localhost', port=27017)
 db = client.flask_db
 todos = db.todos
 
@@ -32,13 +28,18 @@ def create_record():
     print(Memory_Usage)
     todos.insert_one({"CPU_Info":cpu_Usage, "Memory_Info": Memory_Usage})
     return jsonify(request_data)
+# Workable
 @app.route('/update/<id>', methods=['PUT'])
 def update_record(id):
     post_date=request.get_json()
-    if id == todos['id']:
-        todos.update_one({'id':id},{'$set':{"CPU_Info":post_date['CPU_Usage'], "Memory_Info": post_date['Memory_Usage']}})
-        return jsonify({'result': post_date})
+    response = todos.update_one({'_id':ObjectId(id)},{'$set':{"CPU_Info":post_date['CPU_Usage'], "Memory_Info": post_date['Memory_Usage']}})
+    if response.matched_count:
+        message = "Data updated successfully !"
     else:
-        return jsonify({'result':'Not Found'})
+        message = "Data not found !"
+
+    return jsonify({"result":message})
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
+#I tried to do this well
