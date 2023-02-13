@@ -29,15 +29,12 @@ def update_record():
     return jsonify(request_data)
 #Unknown    
 @app.route('/update',methods=['PUT'])
-def create_record(record_id):
+def create_record():
     post_data=request.json
-    for q in todos:
-        if q['id'] == record_id:
-            todos.insert_one(0, {
-                'CPU_Info' : post_data['CPU_Usage'],
-                'Memory_Info' : post_data['Memory_Usage']
-                 })
-            return jsonify({"Message": "User Updated"})
-    return jsonify({"Message": f"User with id={record_id} does not exist!"}), 404
+    todos.insert_one(0, {
+        'CPU_Info' : post_data['CPU_Usage'],
+        'Memory_Info' : post_data['Memory_Usage'],
+        'id' : post_data['id']})
+    return jsonify({"Message": "User Updated"})
 if __name__ == "__main__":
     app.run(Debug=True, host="0.0.0.0", port=8080)
