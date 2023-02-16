@@ -8,7 +8,7 @@ So who want to use my application, I wrote this small instruction. Let's start o
   </a>
 </p>
 
-### Installation
+## Installation
 #### Clone code from repository
 We will used UNIX-based system(Ubuntu 22.04), so if you have git on your machine, you'll write this commands. 
 If you don't have GIT,you should install git [Install Git](https://github.com/git-guides/install-git)
@@ -107,7 +107,7 @@ sudo usermod -aG docker user1
 ```
 Congratulation, we installed all dependences for running our app.
 
-### Running
+## Running
 #### Collect system info in database
 we have a file test.shin part_1 directory,for collecting system info in database. However we want to use this file, we dhould make it executable.
 ```
