@@ -125,3 +125,15 @@ or background.
 ~~~
 If you want to delete background, watch on this image
 ![Kill background process](images/Run_test_sh_background.jpg)
+
+Show info in database, use this command
+Enter in database
+~~~
+mongosh
+~~~
+Show records in database
+~~~
+use flask_db
+db.todos.find
+~~~
+![Databases' records](images/Show%20info%20in%20database.jpg)
