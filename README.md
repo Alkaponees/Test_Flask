@@ -107,4 +107,21 @@ sudo usermod -aG docker user1
 ```
 Congratulation, we installed all dependences for running our app.
 
-
+### Running
+#### Collect system info in database
+we have a file test.shin part_1 directory,for collecting system info in database. However we want to use this file, we dhould make it executable.
+```
+cd Test_Flask/part_1
+chmod +x test.sh
+```
+Okay, we made it executabe
+We can run our process in foreground,
+~~~
+.\test.sh
+~~~
+or background. 
+~~~
+ ./test.sh &>/dev/null &
+~~~
+If you want to delete background, watch on this image
+![Kill background process](/images/Run_test_sh_background.jpg)
