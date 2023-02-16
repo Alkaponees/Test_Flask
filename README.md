@@ -146,6 +146,9 @@ python3 -u app1.py
 Congratulation, you run your app on local machine
 ![Running Flask on local machine](images/Run%20Flask%20app%20on%20local%20machine.jpg)
 #### Test on local machine
+##### GET request
 ![GET request](images/Get%20request%20on%20local%20machine.jpg)
+##### POST request
 ![POST request](images/Post%20request%20on%20local%20machine.jpg)
+##### Result POST request
 ![Result of POST request](images/Result%20post%20command%20on%20local%20machine.jpg)
