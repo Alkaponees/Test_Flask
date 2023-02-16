@@ -9,6 +9,7 @@ So who want to use my application, I wrote this small instruction. Let's start o
 </p>
 
 ## Installation
+I have on local machine Python version 3.10.6, but in Docker container I have Python version 3.7
 #### Clone code from repository
 We will used UNIX-based system(Ubuntu 22.04), so if you have git on your machine, you'll write this commands. 
 If you don't have GIT,you should install git [Install Git](https://github.com/git-guides/install-git)
@@ -20,7 +21,7 @@ cd My_APP
 git clone https://github.com/Alkaponees/Test_Flask.git
 ```
 ### Install Python, pip packet manager and flask (for local machine)
-Now we will install python on our machine
+Now we will install python on our machine 
 ```
 sudo apt update
 sudo apt install python3 -y
