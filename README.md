@@ -137,3 +137,9 @@ use flask_db
 db.todos.find
 ~~~
 ![Databases' records](images/Show%20info%20in%20database.jpg)
+#### Run flask app
+Now we run our app on local machine. If you want to do this you should run this command
+cd ~/Test_Flask/part_2
+python3 -u app1.py
+Congratulation, you run your app on local machine
+![Running Flask on local machine](images/Run%20Flask%20app%20on%20local%20machine.jpg)
