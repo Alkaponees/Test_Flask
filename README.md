@@ -19,7 +19,7 @@ mkdir My_APP
 cd My_APP
 git clone https://github.com/Alkaponees/Test_Flask.git
 ```
-### Install Python, pip packet manager and flask
+### Install Python, pip packet manager and flask (for local machine)
 Now we will install python on our machine
 ```
 sudo apt update
@@ -32,7 +32,7 @@ sudo apt update
 sudo apt install python3-pip
 sudo apt install python3-flask
 ```
-#### Install MongoDb
+#### Install MongoDb (for local machine)
 It's harder part our work. Therefore you should know how to use NoSQL databases. Let's install MongoDB.
 I installed MongoDB 6.0 for local machine
 * Perform System Update
@@ -65,7 +65,7 @@ mongosh
 ```
 Detail info about install MongoDB on Ubuntu, you can read here --> [Install MongoDB](https://techviewleo.com/install-mongodb-on-ubuntu-linux/)
 
-#### Install Docker Engine
+#### Install Docker Engine (for machine where you want to use only Docker Engine)
 If you want to use this app in container decision, so you need to install Docker Engine.
 - Update your existing list of packages
 ```
@@ -140,22 +140,48 @@ db.todos.find
 #### Run flask app on local machine
 Now we run our app on local machine. If you want to do this you should run this command
 ~~~
-cd ~/Test_Flask/part_2
+cd ~My_APP/Test_Flask/part_2
 python3 -u app1.py
 ~~~
 Congratulation, you run your app on local machine
 ![Running Flask on local machine](images/Run_Flask_app_on_local_machine.jpg)
-#### Testing  on local machine
+### Testing  on local machine
 For testing GET,POST adn PUT request I used Postman. You can install POSTMAN app by this link --> [Install Postman](https://www.postman.com/downloads/)
-##### GET request
+#### GET request
 ![GET request](images/Get_request_on_local_machine.jpg)
-##### POST request
+#### POST request
 ![POST request](images/Post_request_on_local_machine.jpg)
-##### Result POST request
+#### Result POST request
 ![Result of POST request](images/Result_post_command_on_local_machine.jpg)
-##### PUT request
+#### PUT request
 ![PUT request](images/PUT_request_on_local_machine.jpg)
-##### Result PUT request
+#### Result PUT request
 ![Result of PUT request](images/Result_PUT_request_on_local_machine.jpg)
 
 Congratulation !!! We tested our app on local machine
+
+### Run flask app in Docker Container
+I created new virtual machine on which I installed docker and cloned this repo
+For running  this app in Docker container, we should to use these commands
+~~~
+cd Test_Flask/part_2
+docker compose up -d
+~~~
+If you want to watch that our app run, you'll use this command
+~~~
+docker ps
+~~~
+![Show info about containers](images/Result_docker_ps_command.jpg)
+###  Testing  on Docker Engine
+#### GET request
+![GET request](images/Get_request_on_docker_container.jpg)
+#### POST request
+![POST request](images/Post_request_on_docker_container.jpg)
+#### Result POST request
+![Result of POST request](images/Result_post_command_on_docker_container.jpg)
+#### PUT request
+![PUT request](images/PUT_request_on_docker_container.jpg)
+#### Result PUT request
+![Result of PUT request](images/Result_PUT_request_on_docker_container.jpg)
+
+Congratulation !!! We tested our app on docker container
