@@ -146,6 +146,7 @@ python3 -u app1.py
 Congratulation, you run your app on local machine
 ![Running Flask on local machine](images/Run%20Flask%20app%20on%20local%20machine.jpg)
 #### Test on local machine
+For testing GET,POST adn PUT request I used Postman. You can install POSTMAN app by this link --> [Install Postman](https://www.postman.com/downloads/)
 ##### GET request
 ![GET request](images/Get%20request%20on%20local%20machine.jpg)
 ##### POST request
