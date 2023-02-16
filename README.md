@@ -152,3 +152,7 @@ Congratulation, you run your app on local machine
 ![POST request](images/Post%20request%20on%20local%20machine.jpg)
 ##### Result POST request
 ![Result of POST request](images/Result%20post%20command%20on%20local%20machine.jpg)
+##### PUT request
+![PUT request](images/PUT%20request%20on%20local%20machine.jpg)
+##### Result PUT request
+![Result of PUT request](images/Result%20PUT%20request%20on%20local%20machine.jpg)
