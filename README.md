@@ -124,4 +124,4 @@ or background.
  ./test.sh &>/dev/null &
 ~~~
 If you want to delete background, watch on this image
-![Kill background process](/images/Run_test_sh_background.jpg)
+![Kill background process](images/Run_test_sh_background.jpg)
